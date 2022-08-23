@@ -1,0 +1,3 @@
+﻿  TheoryProject.cpp
+D:\Projects\C++\TheoryProject\TheoryProject.cpp(28,22): warning C4244: *=: преобразование "double" в "int", возможна потеря данных
+  TheoryProject.vcxproj -> D:\Projects\C++\TheoryProject\x64\Debug\TheoryProject.exe

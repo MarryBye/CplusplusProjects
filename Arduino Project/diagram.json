@@ -1,0 +1,72 @@
+{
+  "version": 1,
+  "author": "Uri Shaked",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-arduino-uno", "id": "uno", "top": 120, "left": 20, "attrs": {} },
+    {
+      "type": "wokwi-analog-joystick",
+      "id": "joystick1",
+      "top": -22.41,
+      "left": 379.4,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-max7219-matrix",
+      "id": "matrix1",
+      "top": -87.83,
+      "left": 29.37,
+      "attrs": { "chain": "2" }
+    },
+    {
+      "type": "wokwi-buzzer",
+      "id": "bz1",
+      "top": -0.4,
+      "left": -116.4,
+      "attrs": { "volume": "0.1" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led1",
+      "top": -75.6,
+      "left": -24,
+      "attrs": { "color": "green" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led2",
+      "top": -75.6,
+      "left": -67.2,
+      "attrs": { "color": "red" }
+    },
+    {
+      "type": "wokwi-lcd1602",
+      "id": "lcd2",
+      "top": -231.62,
+      "left": -27.87,
+      "attrs": { "pins": "i2c" }
+    }
+  ],
+  "connections": [
+    [ "joystick1:HORZ", "uno:A1", "green", [ "v0", "*", "v12" ] ],
+    [ "joystick1:VERT", "uno:A0", "green", [ "v0", "*", "v16" ] ],
+    [ "joystick1:SEL", "uno:2", "red", [ "v0", "*", "v-12" ] ],
+    [ "joystick1:GND", "uno:GND.3", "black", [ "v0", "*", "v20" ] ],
+    [ "joystick1:VCC", "uno:5V", "red", [ "v0", "*", "v24" ] ],
+    [ "matrix1:CS", "uno:10", "red", [ "h8", "*", "v-24" ] ],
+    [ "matrix1:DIN", "uno:11", "red", [ "h12", "*", "v-20" ] ],
+    [ "matrix1:CLK", "uno:13", "red", [ "h4", "*", "v-28" ] ],
+    [ "matrix1:GND", "uno:GND.1", "black", [ "h16", "*", "v-12" ] ],
+    [ "joystick1:VCC", "matrix1:V+", "red", [ "v7.04", "h-38.02", "v-84.67" ] ],
+    [ "bz1:1", "uno:GND.1", "black", [ "v43.87", "h97.05", "v-95.59", "h118.44" ] ],
+    [ "bz1:2", "uno:12", "red", [ "v40.49", "h87.12", "v-96.45", "h157.01" ] ],
+    [ "led1:C", "uno:GND.1", "black", [ "v126.37", "h141.57" ] ],
+    [ "led2:C", "uno:GND.1", "black", [ "v127.75", "h184.08" ] ],
+    [ "led1:A", "uno:9", "red", [ "v56.1", "h174.9" ] ],
+    [ "led2:A", "uno:8", "red", [ "v55.41", "h230.51" ] ],
+    [ "lcd2:GND", "uno:GND.1", "black", [ "h-49.22", "v192.47", "h21.83", "v100.23", "h184.3" ] ],
+    [ "lcd2:VCC", "uno:5V", "red", [ "h-96.91", "v563.7", "h304.74" ] ],
+    [ "lcd2:SDA", "uno:A4.2", "green", [ "h-126.36", "v293.64", "h266.27" ] ],
+    [ "lcd2:SCL", "uno:A5.2", "green", [ "h-114.79", "v273.46", "h243.12" ] ]
+  ]
+}
